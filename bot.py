@@ -10,11 +10,18 @@ logging.basicConfig(level=logging.INFO)
 bot = Bot(token=config.TOKEN)
 dp = Dispatcher(bot)
 
+#client part
+@dp.message_handler(commands=['start', 'help',])
+async def command_start(message : types.Message):
+    await bot.send_message(message.from_user.id, 'Ha en god dag')
 
 # echo
 @dp.message_handler()
-async def echo(message: types.Message):
-    await message.answer(message.text)
+async def echo_send(message : types.Message):
+    if message.text == 'Hei':
+        await message.answer('Hei til deg også!')
+
+
 
 
 # run long-polling
