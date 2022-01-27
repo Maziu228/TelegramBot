@@ -10,7 +10,7 @@ logging.basicConfig(level=logging.INFO)
 bot = Bot(token=config.TOKEN)
 dp = Dispatcher(bot)
 
-#client part
+#client  part
 @dp.message_handler(commands=['start', 'help',])
 async def command_start(message : types.Message):
     await bot.send_message(message.from_user.id, 'Ha en god dag')
